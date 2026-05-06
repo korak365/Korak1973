@@ -1,0 +1,6 @@
+node_modules/
+storage/datasets/
+storage/key_value_stores/
+storage/request_queues/
+.env
+*.log

@@ -1,0 +1,143 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "All Products",
+            "transformation": {
+                "fields": ["retailer", "category", "productName", "brand", "price", "pricePerUnit", "unit", "inStock", "url", "scrapedAt"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "retailer": {
+                        "label": "Retailer",
+                        "format": "text"
+                    },
+                    "category": {
+                        "label": "Category",
+                        "format": "text"
+                    },
+                    "productName": {
+                        "label": "Product Name",
+                        "format": "text"
+                    },
+                    "brand": {
+                        "label": "Brand",
+                        "format": "text"
+                    },
+                    "price": {
+                        "label": "Price (USD)",
+                        "format": "number"
+                    },
+                    "pricePerUnit": {
+                        "label": "Price / Unit",
+                        "format": "number"
+                    },
+                    "unit": {
+                        "label": "Unit",
+                        "format": "text"
+                    },
+                    "inStock": {
+                        "label": "In Stock",
+                        "format": "boolean"
+                    },
+                    "url": {
+                        "label": "Product URL",
+                        "format": "link"
+                    },
+                    "scrapedAt": {
+                        "label": "Scraped At",
+                        "format": "date"
+                    }
+                }
+            }
+        },
+        "priceChanges": {
+            "title": "Price Changes",
+            "transformation": {
+                "fields": ["retailer", "category", "productName", "price", "previousPrice", "priceChangePct", "priceChangeAbs", "inflationFlag", "scrapedAt"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "retailer": {
+                        "label": "Retailer",
+                        "format": "text"
+                    },
+                    "category": {
+                        "label": "Category",
+                        "format": "text"
+                    },
+                    "productName": {
+                        "label": "Product",
+                        "format": "text"
+                    },
+                    "price": {
+                        "label": "Current Price",
+                        "format": "number"
+                    },
+                    "previousPrice": {
+                        "label": "Previous Price",
+                        "format": "number"
+                    },
+                    "priceChangePct": {
+                        "label": "Change %",
+                        "format": "number"
+                    },
+                    "priceChangeAbs": {
+                        "label": "Change $",
+                        "format": "number"
+                    },
+                    "inflationFlag": {
+                        "label": "Flagged",
+                        "format": "boolean"
+                    },
+                    "scrapedAt": {
+                        "label": "Date",
+                        "format": "date"
+                    }
+                }
+            }
+        },
+        "categoryIndex": {
+            "title": "Category Price Index",
+            "transformation": {
+                "fields": ["retailer", "category", "avgPrice", "minPrice", "maxPrice", "productCount", "scrapedAt"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "retailer": {
+                        "label": "Retailer",
+                        "format": "text"
+                    },
+                    "category": {
+                        "label": "Category",
+                        "format": "text"
+                    },
+                    "avgPrice": {
+                        "label": "Avg Price (USD)",
+                        "format": "number"
+                    },
+                    "minPrice": {
+                        "label": "Min Price",
+                        "format": "number"
+                    },
+                    "maxPrice": {
+                        "label": "Max Price",
+                        "format": "number"
+                    },
+                    "productCount": {
+                        "label": "Products Tracked",
+                        "format": "number"
+                    },
+                    "scrapedAt": {
+                        "label": "Date",
+                        "format": "date"
+                    }
+                }
+            }
+        }
+    }
+}

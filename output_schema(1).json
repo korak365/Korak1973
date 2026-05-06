@@ -1,0 +1,21 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Output schema of the Grocery Price Index",
+    "properties": {
+        "overview": {
+            "type": "string",
+            "title": "All Products",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+        },
+        "priceChanges": {
+            "type": "string",
+            "title": "Price Changes (Inflation Tracker)",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=priceChanges"
+        },
+        "categoryIndex": {
+            "type": "string",
+            "title": "Category Price Index",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=categoryIndex"
+        }
+    }
+}

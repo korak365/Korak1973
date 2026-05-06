@@ -1,0 +1,71 @@
+{
+    "title": "Input schema of the Grocery Price Index",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "retailers": {
+            "title": "Retailers to Scrape",
+            "type": "array",
+            "description": "List of supermarket retailer identifiers to scrape. Supported: walmart, kroger, wholefoods, target, aldi.",
+            "editor": "stringList",
+            "prefill": ["walmart", "kroger", "target"]
+        },
+        "categories": {
+            "title": "Product Categories",
+            "type": "array",
+            "description": "Grocery categories to monitor. Options: dairy, bread, meat, produce, beverages, snacks, frozen, canned.",
+            "editor": "stringList",
+            "prefill": ["dairy", "bread", "meat", "produce", "beverages"]
+        },
+        "startUrls": {
+            "title": "Custom Start URLs",
+            "type": "array",
+            "description": "Optional: provide direct URLs to specific supermarket category or search pages to scrape instead of using the built-in retailer list.",
+            "editor": "requestListSources",
+            "prefill": [
+                { "url": "https://www.walmart.com/browse/food/dairy-eggs/976759_976779" }
+            ]
+        },
+        "trackPriceHistory": {
+            "title": "Track Price History",
+            "type": "boolean",
+            "description": "If enabled, each run compares prices against the previous run stored in the key-value store and flags items with price changes.",
+            "default": true
+        },
+        "minPriceChangePct": {
+            "title": "Minimum Price Change % to Flag",
+            "type": "number",
+            "description": "Minimum percentage price change to flag as notable inflation/deflation. E.g. 5 means flag items that changed by ±5% or more.",
+            "default": 5
+        },
+        "maxRequestsPerCrawl": {
+            "title": "Max Requests per Crawl",
+            "type": "integer",
+            "description": "Maximum number of HTTP requests the crawler will make per run.",
+            "default": 300
+        },
+        "maxProductsPerCategory": {
+            "title": "Max Products per Category",
+            "type": "integer",
+            "description": "Maximum number of products to collect per category per retailer.",
+            "default": 40
+        },
+        "zipCode": {
+            "title": "ZIP Code (for localised pricing)",
+            "type": "string",
+            "description": "US ZIP code used to localise prices where supported by the retailer.",
+            "editor": "textfield",
+            "prefill": "10001"
+        },
+        "proxyConfiguration": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Proxy settings. Rotating residential proxies are recommended for major retailers.",
+            "editor": "proxy",
+            "prefill": {
+                "useApifyProxy": true
+            }
+        }
+    },
+    "required": []
+}
